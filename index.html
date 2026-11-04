@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Huishoudboekje NL — Household Expense Tracker</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Chart.js for Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- Mozilla PDF.js for client-side PDF bank statement parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+  <!-- Household Access Gate Modal (2-User Control) -->
+  <div id="auth-gate" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>🔒 Household Access Control</h2>
+        <p>Restricted to the 2 authorized household members.</p>
+      </div>
+      <form id="auth-form">
+        <label for="auth-email">Your Authorized Email</label>
+        <input type="email" id="auth-email" placeholder="e.g., partner1@example.com" required />
+
+        <label for="auth-pin">Household Passcode / PIN</label>
+        <input type="password" id="auth-pin" placeholder="Enter shared household PIN" required />
+
+        <p id="auth-error" class="error-text hidden">Access denied. Email or PIN does not match household settings.</p>
+        <button type="submit" class="btn btn-primary full-width">Unlock App</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Top Header -->
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-logo">💶</span>
+      <div>
+        <h1>Huishoudboekje NL</h1>
+        <small id="sync-status" class="status-badge">Local / Repo Storage Ready</small>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <span id="active-user-pill" class="user-pill">👤 Household Admin</span>
+      <button id="btn-sync-now" class="btn btn-outline btn-sm" title="Pull latest data/db.json from GitHub">🔄 Sync Repo</button>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs (Responsive for Laptop, Android & iPhone) -->
+  <nav class="app-nav">
+    <button class="nav-btn active" data-tab="tab-dashboard">📊 Dashboard</button>
+    <button class="nav-btn" data-tab="tab-upload">📄 Upload PDF / CSV</button>
+    <button class="nav-btn" data-tab="tab-transactions">🧾 Transactions</button>
+    <button class="nav-btn" data-tab="tab-history">🗓️ Monthly History</button>
+    <button class="nav-btn" data-tab="tab-settings">⚙️ GitHub DB & Access</button>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="container">
+
+    <!-- TAB 1: DASHBOARD & VISUALIZATIONS -->
+    <section id="tab-dashboard" class="tab-panel active">
+      <div class="filter-bar card">
+        <div class="filter-group">
+          <label for="filter-timeline-mode">Timeline Scale</label>
+          <select id="filter-timeline-mode">
+            <option value="month">Monthly Timeline (YYYY-MM)</option>
+            <option value="year">Yearly Timeline (YYYY)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-period">Inspect Period</label>
+          <select id="filter-period">
+            <option value="ALL">All Time</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-bank">Bank Account</label>
+          <select id="filter-bank">
+            <option value="ALL">All 5 Banks</option>
+            <option value="Rabobank">Rabobank</option>
+            <option value="ABN AMRO">ABN AMRO</option>
+            <option value="Revolut">Revolut</option>
+            <option value="bunq">bunq</option>
+            <option value="Wise">Wise</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="chart-type-toggle">Chart Style</label>
+          <select id="chart-type-toggle">
+            <option value="bar">Stacked Bar Chart</option>
+            <option value="line">Category Trend Lines</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- KPI Summary Cards -->
+      <div class="kpi-grid">
+        <div class="card kpi-card">
+          <span class="kpi-label">Total Expenses</span>
+          <strong id="kpi-expenses" class="kpi-value negative">€0.00</strong>
+          <small id="kpi-period-sub">Selected period</small>
+        </div>
+        <div class="card kpi-card">
+          <span class="kpi-label">Top Category</span>
+          <strong id="kpi-top-category" class="kpi-value">—</strong>
+          <small id="kpi-top-category-amount">€0.00</small>
+        </div>
+        <div class="card kpi-card">
+          <span class="kpi-label">Transactions</span>
+          <strong id="kpi-tx-count" class="kpi-value">0</strong>
+          <small id="kpi-bank-count">Across active banks</small>
+        </div>
+      </div>
+
+      <!-- Charts Grid -->
+      <div class="charts-grid">
+        <div class="card chart-card wide">
+          <div class="card-header">
+            <h3>Expenses per Category Over Time</h3>
+            <small>Track monthly or yearly spending trends per category</small>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="timelineChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card chart-card">
+          <div class="card-header">
+            <h3>Category Breakdown</h3>
+            <small>Share of spending for selected period</small>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Totals Table -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Category Summary</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Transactions</th>
+                <th>Total Spent</th>
+                <th>% of Total</th>
+              </tr>
+            </thead>
+            <tbody id="category-summary-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: UPLOAD STATEMENTS (PDF & CSV for 5 Banks) -->
+    <section id="tab-upload" class="tab-panel hidden">
+      <div class="card">
+        <div class="card-header">
+          <h3>Upload Monthly Bank Statements (PDF or CSV)</h3>
+          <p>Supported banks: <strong>Rabobank, ABN AMRO, Revolut, bunq, and Wise</strong>.</p>
+        </div>
+
+        <div class="upload-controls">
+          <div class="form-row">
+            <div class="form-col">
+              <label for="upload-bank-select">Bank Source</label>
+              <select id="upload-bank-select">
+                <option value="AUTO">Auto-Detect from Statement</option>
+                <option value="Rabobank">Rabobank</option>
+                <option value="ABN AMRO">ABN AMRO</option>
+                <option value="Revolut">Revolut</option>
+                <option value="bunq">bunq</option>
+                <option value="Wise">Wise</option>
+              </select>
+            </div>
+            <div class="form-col">
+              <label for="upload-month-input">Statement Month (YYYY-MM)</label>
+              <input type="month" id="upload-month-input" />
+            </div>
+          </div>
+
+          <label for="statement-file-input" class="dropzone" id="statement-dropzone">
+            <div class="dropzone-content">
+              <span class="dropzone-icon">📂</span>
+              <strong>Tap or Drop PDF / CSV / TAB Statements Here</strong>
+              <small>Works on Laptop, Android & iPhone • Multiple files supported</small>
+            </div>
+            <input type="file" id="statement-file-input" accept=".pdf,.csv,.tsv,.txt,.tab" multiple hidden />
+          </label>
+        </div>
+
+        <!-- Staging Preview Area before saving to Backend DB -->
+        <div id="staging-container" class="staging-area hidden">
+          <div class="staging-header">
+            <div>
+              <h4 id="staging-title">Parsed Transactions Preview</h4>
+              <small>Review extracted transactions and categories before committing to <code>data/db.json</code>.</small>
+            </div>
+            <div class="staging-actions">
+              <button id="btn-cancel-staging" class="btn btn-outline">Cancel</button>
+              <button id="btn-commit-staging" class="btn btn-primary">💾 Save to Backend Storage</button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Bank</th>
+                  <th>Merchant / Description</th>
+                  <th>Category</th>
+                  <th>Amount (€)</th>
+                </tr>
+              </thead>
+              <tbody id="staging-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: TRANSACTIONS & CATEGORIZATION RULES -->
+    <section id="tab-transactions" class="tab-panel hidden">
+      <div class="card">
+        <div class="card-header split-header">
+          <div>
+            <h3>All Transactions & Smart Categorizer</h3>
+            <small>Changing any transaction's category automatically teaches the categorizer for future statements.</small>
+          </div>
+          <input type="search" id="tx-search-input" placeholder="Search merchant, category, bank..." class="search-input" />
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Bank</th>
+                <th>Merchant</th>
+                <th>Category (Click to Change)</th>
+                <th>Amount</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="transactions-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: MONTHLY STATEMENT HISTORY & MEMORY -->
+    <section id="tab-history" class="tab-panel hidden">
+      <div class="card">
+        <div class="card-header">
+          <h3>Month-End Statement Coverage Matrix</h3>
+          <small>Tracks which of your 5 banks have statements uploaded for each month.</small>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Rabobank</th>
+                <th>ABN AMRO</th>
+                <th>Revolut</th>
+                <th>bunq</th>
+                <th>Wise</th>
+                <th>Total Spend</th>
+              </tr>
+            </thead>
+            <tbody id="coverage-matrix-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Uploaded Statement Batches</h3>
+          <small>History of uploaded PDF/CSV statement files stored in backend memory.</small>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Statement Month</th>
+                <th>Bank</th>
+                <th>File Name</th>
+                <th>Transactions</th>
+                <th>Total Expense</th>
+                <th>Uploaded At</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="batches-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: GITHUB REPO BACKEND STORAGE & 2-USER ACCESS CONTROL -->
+    <section id="tab-settings" class="tab-panel hidden">
+      <div class="settings-grid">
+        <!-- GitHub Repo Backend Configuration -->
+        <div class="card">
+          <div class="card-header">
+            <h3>☁️ GitHub Repository Backend Storage</h3>
+            <small>Uses <code>data/db.json</code> inside this same GitHub project as your cloud database across Laptop, Android & iPhone.</small>
+          </div>
+
+          <form id="github-config-form" class="settings-form">
+            <label for="gh-owner">GitHub Username / Owner</label>
+            <input type="text" id="gh-owner" placeholder="e.g., brijeshrana" required />
+
+            <label for="gh-repo">GitHub Repository Name</label>
+            <input type="text" id="gh-repo" placeholder="e.g., huishoudboekje-nl" required />
+
+            <label for="gh-branch">Branch</label>
+            <input type="text" id="gh-branch" value="main" required />
+
+            <label for="gh-path">Database File Path in Repo</label>
+            <input type="text" id="gh-path" value="data/db.json" required />
+
+            <label for="gh-token">GitHub Fine-Grained Personal Access Token (PAT)</label>
+            <input type="password" id="gh-token" placeholder="github_pat_..." required />
+            <small class="hint-text">
+              Create a Fine-Grained Token on GitHub scoped only to this repository with <strong>Contents: Read and write</strong> permission.
+            </small>
+
+            <div class="button-row">
+              <button type="submit" class="btn btn-primary">Save & Connect GitHub DB</button>
+              <button type="button" id="btn-push-db" class="btn btn-outline">⬆️ Push Local Data to GitHub</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- 2-User Household Access Control -->
+        <div class="card">
+          <div class="card-header">
+            <h3>👫 2-User Household Access Control</h3>
+            <small>Restrict app access to only you and your wife across all devices.</small>
+          </div>
+
+          <form id="access-control-form" class="settings-form">
+            <label for="user1-name">Partner 1 Name</label>
+            <input type="text" id="user1-name" placeholder="Your Name" required />
+
+            <label for="user1-email">Partner 1 Email</label>
+            <input type="email" id="user1-email" placeholder="you@example.com" required />
+
+            <label for="user2-name">Partner 2 Name (Wife)</label>
+            <input type="text" id="user2-name" placeholder="Wife's Name" required />
+
+            <label for="user2-email">Partner 2 Email (Wife)</label>
+            <input type="email" id="user2-email" placeholder="wife@example.com" required />
+
+            <label for="household-pin">Shared Household Lock PIN (Optional)</label>
+            <input type="password" id="household-pin" placeholder="Leave blank to disable lock screen" />
+
+            <div class="button-row">
+              <button type="submit" class="btn btn-primary">Update Access List</button>
+              <button type="button" id="btn-lock-now" class="btn btn-outline">🔒 Test Lock Screen</button>
+            </div>
+          </form>
+
+          <hr class="divider" />
+          <div class="backup-actions">
+            <h4>Manual JSON Database Backup</h4>
+            <div class="button-row">
+              <button type="button" id="btn-export-json" class="btn btn-outline">⬇️ Download db.json</button>
+              <label class="btn btn-outline" for="import-json-input">
+                ⬆️ Restore db.json
+                <input type="file" id="import-json-input" accept=".json" hidden />
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modular Application Scripts (Separated by Responsibility) -->
+  <script src="js/categorizer.js"></script>
+  <script src="js/parsers.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
