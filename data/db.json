@@ -2,7 +2,7 @@
   "meta": {
     "app": "Huishoudboekje NL",
     "version": "2.0.0",
-    "lastUpdated": "2026-11-04T22:00:00Z"
+    "lastUpdated": "2026-11-04T22:36:46.698Z"
   },
   "accessControl": {
     "allowedUsers": [
@@ -39,19 +39,6 @@
   ],
   "transactions": [
     {
-      "id": "tx-demo-1",
-      "batchId": "batch-demo-2026-10",
-      "date": "2026-10-02",
-      "month": "2026-10",
-      "year": "2026",
-      "bank": "Rabobank",
-      "merchant": "Rabobank Hypotheek",
-      "description": "Maandlast hypotheek oktober",
-      "amount": -1085.0,
-      "type": "expense",
-      "category": "Housing & Utilities"
-    },
-    {
       "id": "tx-demo-2",
       "batchId": "batch-demo-2026-10",
       "date": "2026-10-06",
@@ -86,7 +73,7 @@
       "bank": "Revolut",
       "merchant": "Pathe Theatres",
       "description": "Cinema tickets Eindhoven",
-      "amount": -32.0,
+      "amount": -32,
       "type": "expense",
       "category": "Dining & Leisure"
     },
