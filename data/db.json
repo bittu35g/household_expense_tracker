@@ -2,7 +2,7 @@
   "meta": {
     "app": "Huishoudboekje NL",
     "version": "2.0.0",
-    "lastUpdated": "2026-11-04T22:37:21.379Z"
+    "lastUpdated": "2026-11-04T22:38:33.695Z"
   },
   "accessControl": {
     "allowedUsers": [
@@ -25,6 +25,226 @@
     "action": "Home & DIY",
     "pathe": "Dining & Leisure"
   },
-  "batches": [],
-  "transactions": []
+  "batches": [
+    {
+      "id": "batch-1793831913695",
+      "fileName": "Rabo Banking details.pdf",
+      "bank": "Rabobank",
+      "statementMonth": "2026-11",
+      "uploadedAt": "2026-11-04T22:38:33.695Z",
+      "uploadedBy": "Household Admin",
+      "txCount": 16,
+      "totalExpense": 13796.87
+    }
+  ],
+  "transactions": [
+    {
+      "id": "tx-1793831905707-10-1mr1",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "2508 59 EUR RABONL2U 3.222,33",
+      "description": "2508 59 EUR RABONL2U 3.222,33",
+      "amount": -5318.21,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905707-13-k7wp",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "1533 33 Rabobank Regio Eindhoven",
+      "description": "1533 33 Rabobank Regio Eindhoven",
+      "amount": -2498.1,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-18-4kr8",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "6012 13 Brabant Water N.V.",
+      "description": "6012 13 Brabant Water N.V.",
+      "amount": -20,
+      "type": "expense",
+      "category": "Housing & Utilities",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-27-y0xd",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "5420 45 ASR IKZ ZORG",
+      "description": "5420 45 ASR IKZ ZORG",
+      "amount": -317,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-36-1t8g",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "2508 59 Rabobank",
+      "description": "2508 59 Rabobank",
+      "amount": -3.6,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-41-e6rs",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "6250 36 BUDGET THUIS",
+      "description": "6250 36 BUDGET THUIS",
+      "amount": -9.86,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-51-ov88",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "5586 01 Budget Internet",
+      "description": "5586 01 Budget Internet",
+      "amount": -26,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-75-am1w",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "4054 87 Centraal Beheer",
+      "description": "4054 87 Centraal Beheer",
+      "amount": -7.98,
+      "type": "expense",
+      "category": "Housing & Utilities",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-85-0msx",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "4054 87",
+      "description": "4054 87",
+      "amount": -17.93,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-105-1s1h",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "6756 81 DAF TRUCKS N.V.",
+      "description": "6756 81 DAF TRUCKS N.V.",
+      "amount": -5303.21,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-110-04y0",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "2003 00 HARTSTICHTING",
+      "description": "2003 00 HARTSTICHTING",
+      "amount": -15,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-118-crcf",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "2154 18 NH1816 VERZEKERINGEN",
+      "description": "2154 18 NH1816 VERZEKERINGEN",
+      "amount": -76.83,
+      "type": "expense",
+      "category": "Housing & Utilities",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-140-22ct",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "9191 31 BUDGET ENERGIE",
+      "description": "9191 31 BUDGET ENERGIE",
+      "amount": -136,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-149-sd8d",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "2003 00 HARTSTICHTING",
+      "description": "2003 00 HARTSTICHTING",
+      "amount": -15,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-158-f83a",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "1516 73",
+      "description": "1516 73",
+      "amount": -15.03,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    },
+    {
+      "id": "tx-1793831905708-168-v308",
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "1516 73 BSOB INNINGSREKENING",
+      "description": "1516 73 BSOB INNINGSREKENING",
+      "amount": -17.12,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1793831913695"
+    }
+  ]
 }
