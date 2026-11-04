@@ -2,7 +2,7 @@
   "meta": {
     "app": "Huishoudboekje NL",
     "version": "2.0.0",
-    "lastUpdated": "2026-11-04T22:36:46.698Z"
+    "lastUpdated": "2026-11-04T22:37:21.379Z"
   },
   "accessControl": {
     "allowedUsers": [
@@ -25,70 +25,6 @@
     "action": "Home & DIY",
     "pathe": "Dining & Leisure"
   },
-  "batches": [
-    {
-      "id": "batch-demo-2026-10",
-      "fileName": "rabobank_2026_10.pdf",
-      "bank": "Rabobank",
-      "statementMonth": "2026-10",
-      "uploadedAt": "2026-10-31T19:30:00Z",
-      "uploadedBy": "Partner 1 (Admin)",
-      "txCount": 5,
-      "totalExpense": 1344.2
-    }
-  ],
-  "transactions": [
-    {
-      "id": "tx-demo-2",
-      "batchId": "batch-demo-2026-10",
-      "date": "2026-10-06",
-      "month": "2026-10",
-      "year": "2026",
-      "bank": "Rabobank",
-      "merchant": "Albert Heijn",
-      "description": "Albert Heijn Supermarkt",
-      "amount": -86.45,
-      "type": "expense",
-      "category": "Groceries"
-    },
-    {
-      "id": "tx-demo-3",
-      "batchId": "batch-demo-2026-10",
-      "date": "2026-10-12",
-      "month": "2026-10",
-      "year": "2026",
-      "bank": "ABN AMRO",
-      "merchant": "GAMMA Bouwmarkt",
-      "description": "GAMMA Bouwmarkt DIY materialen",
-      "amount": -64.9,
-      "type": "expense",
-      "category": "Home & DIY"
-    },
-    {
-      "id": "tx-demo-4",
-      "batchId": "batch-demo-2026-10",
-      "date": "2026-10-18",
-      "month": "2026-10",
-      "year": "2026",
-      "bank": "Revolut",
-      "merchant": "Pathe Theatres",
-      "description": "Cinema tickets Eindhoven",
-      "amount": -32,
-      "type": "expense",
-      "category": "Dining & Leisure"
-    },
-    {
-      "id": "tx-demo-5",
-      "batchId": "batch-demo-2026-10",
-      "date": "2026-10-24",
-      "month": "2026-10",
-      "year": "2026",
-      "bank": "bunq",
-      "merchant": "Shell Station",
-      "description": "Brandstof Euro 95",
-      "amount": -75.85,
-      "type": "expense",
-      "category": "Transport"
-    }
-  ]
+  "batches": [],
+  "transactions": []
 }
