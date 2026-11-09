@@ -2,7 +2,7 @@
   "meta": {
     "app": "Huishoudboekje NL",
     "version": "2.0.0",
-    "lastUpdated": "2026-11-09T20:48:54.310Z"
+    "lastUpdated": "2026-11-09T20:49:55.339Z"
   },
   "accessControl": {
     "allowedUsers": [
@@ -27,19 +27,227 @@
   },
   "batches": [
     {
-      "id": "batch-1794257334310",
+      "id": "batch-1794257384003",
       "fileName": "2026-11-09T21 47 58$..pdf",
       "bank": "ABN AMRO",
       "statementMonth": "2026-10",
-      "uploadedAt": "2026-11-09T20:48:54.310Z",
+      "uploadedAt": "2026-11-09T20:49:44.003Z",
       "uploadedBy": "Household Admin",
-      "txCount": 11,
-      "totalExpense": 2964.12
+      "txCount": 27,
+      "totalExpense": 16760.99
     }
   ],
   "transactions": [
     {
-      "id": "tx-1794257324435-10-btak",
+      "id": "tx-1794257376046-10-1sgb",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "2508 59 EUR RABONL2U 3.222,33",
+      "description": "2508 59 EUR RABONL2U 3.222,33",
+      "amount": -5318.21,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376046-13-87z6",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "1533 33 Rabobank Regio Eindhoven",
+      "description": "1533 33 Rabobank Regio Eindhoven",
+      "amount": -2498.1,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376046-18-x33h",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "6012 13 Brabant Water N.V.",
+      "description": "6012 13 Brabant Water N.V.",
+      "amount": -20,
+      "type": "expense",
+      "category": "Housing & Utilities",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376046-27-uikv",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "5420 45 ASR IKZ ZORG",
+      "description": "5420 45 ASR IKZ ZORG",
+      "amount": -317,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-36-g4ga",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "2508 59 Rabobank",
+      "description": "2508 59 Rabobank",
+      "amount": -3.6,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-41-c5du",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "6250 36 BUDGET THUIS",
+      "description": "6250 36 BUDGET THUIS",
+      "amount": -9.86,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-51-88qh",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "5586 01 Budget Internet",
+      "description": "5586 01 Budget Internet",
+      "amount": -26,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-75-kfpk",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "4054 87 Centraal Beheer",
+      "description": "4054 87 Centraal Beheer",
+      "amount": -7.98,
+      "type": "expense",
+      "category": "Housing & Utilities",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-85-ckqs",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "4054 87",
+      "description": "4054 87",
+      "amount": -17.93,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-105-vnlc",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "6756 81 DAF TRUCKS N.V.",
+      "description": "6756 81 DAF TRUCKS N.V.",
+      "amount": -5303.21,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-110-rkpu",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "2003 00 HARTSTICHTING",
+      "description": "2003 00 HARTSTICHTING",
+      "amount": -15,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-118-bpor",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "2154 18 NH1816 VERZEKERINGEN",
+      "description": "2154 18 NH1816 VERZEKERINGEN",
+      "amount": -76.83,
+      "type": "expense",
+      "category": "Housing & Utilities",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-140-4ojb",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "9191 31 BUDGET ENERGIE",
+      "description": "9191 31 BUDGET ENERGIE",
+      "amount": -136,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-149-aiaw",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "2003 00 HARTSTICHTING",
+      "description": "2003 00 HARTSTICHTING",
+      "amount": -15,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-158-sfk8",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "1516 73",
+      "description": "1516 73",
+      "amount": -15.03,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376047-168-0w2f",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "Rabobank",
+      "merchant": "1516 73 BSOB INNINGSREKENING",
+      "description": "1516 73 BSOB INNINGSREKENING",
+      "amount": -17.12,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257384003"
+    },
+    {
+      "id": "tx-1794257376253-10-xpqn",
       "date": "2026-10-31",
       "month": "2026-10",
       "year": "2026",
@@ -49,10 +257,10 @@
       "amount": -1006.98,
       "type": "expense",
       "category": "Transfers & Other",
-      "batchId": "batch-1794257334310"
+      "batchId": "batch-1794257384003"
     },
     {
-      "id": "tx-1794257324435-12-2vsk",
+      "id": "tx-1794257376253-12-ewc0",
       "date": "2026-10-01",
       "month": "2026-10",
       "year": "2026",
@@ -62,10 +270,10 @@
       "amount": -1006.98,
       "type": "expense",
       "category": "Transfers & Other",
-      "batchId": "batch-1794257334310"
+      "batchId": "batch-1794257384003"
     },
     {
-      "id": "tx-1794257324435-19-1tkv",
+      "id": "tx-1794257376253-19-0tkj",
       "date": "2026-10-01",
       "month": "2026-10",
       "year": "2026",
@@ -75,10 +283,10 @@
       "amount": -20,
       "type": "expense",
       "category": "Transfers & Other",
-      "batchId": "batch-1794257334310"
+      "batchId": "batch-1794257384003"
     },
     {
-      "id": "tx-1794257324435-26-gmet",
+      "id": "tx-1794257376253-26-tf0i",
       "date": "2026-10-01",
       "month": "2026-10",
       "year": "2026",
@@ -88,10 +296,10 @@
       "amount": -500,
       "type": "expense",
       "category": "Transfers & Other",
-      "batchId": "batch-1794257334310"
+      "batchId": "batch-1794257384003"
     },
     {
-      "id": "tx-1794257324435-30-lg1n",
+      "id": "tx-1794257376253-30-1nhr",
       "date": "2026-10-03",
       "month": "2026-10",
       "year": "2026",
@@ -101,10 +309,10 @@
       "amount": -50,
       "type": "expense",
       "category": "Transfers & Other",
-      "batchId": "batch-1794257334310"
+      "batchId": "batch-1794257384003"
     },
     {
-      "id": "tx-1794257324435-36-caba",
+      "id": "tx-1794257376253-36-uuux",
       "date": "2026-10-05",
       "month": "2026-10",
       "year": "2026",
@@ -114,10 +322,10 @@
       "amount": -17.15,
       "type": "expense",
       "category": "Transfers & Other",
-      "batchId": "batch-1794257334310"
+      "batchId": "batch-1794257384003"
     },
     {
-      "id": "tx-1794257324435-44-i6zi",
+      "id": "tx-1794257376253-44-xyqu",
       "date": "2026-10-09",
       "month": "2026-10",
       "year": "2026",
@@ -127,10 +335,10 @@
       "amount": -100,
       "type": "expense",
       "category": "Transfers & Other",
-      "batchId": "batch-1794257334310"
+      "batchId": "batch-1794257384003"
     },
     {
-      "id": "tx-1794257324435-50-v210",
+      "id": "tx-1794257376253-50-9pj1",
       "date": "2026-10-09",
       "month": "2026-10",
       "year": "2026",
@@ -140,10 +348,10 @@
       "amount": -130,
       "type": "expense",
       "category": "Transfers & Other",
-      "batchId": "batch-1794257334310"
+      "batchId": "batch-1794257384003"
     },
     {
-      "id": "tx-1794257324435-53-8mwy",
+      "id": "tx-1794257376253-53-iz3v",
       "date": "2026-10-21",
       "month": "2026-10",
       "year": "2026",
@@ -153,10 +361,10 @@
       "amount": -100,
       "type": "expense",
       "category": "Transfers & Other",
-      "batchId": "batch-1794257334310"
+      "batchId": "batch-1794257384003"
     },
     {
-      "id": "tx-1794257324435-67-ccd6",
+      "id": "tx-1794257376253-67-xed7",
       "date": "2026-10-30",
       "month": "2026-10",
       "year": "2026",
@@ -166,10 +374,10 @@
       "amount": -28.71,
       "type": "expense",
       "category": "Transfers & Other",
-      "batchId": "batch-1794257334310"
+      "batchId": "batch-1794257384003"
     },
     {
-      "id": "tx-1794257324435-75-y7p4",
+      "id": "tx-1794257376253-75-oii9",
       "date": "2026-10-30",
       "month": "2026-10",
       "year": "2026",
@@ -179,7 +387,7 @@
       "amount": -4.3,
       "type": "expense",
       "category": "Transfers & Other",
-      "batchId": "batch-1794257334310"
+      "batchId": "batch-1794257384003"
     }
   ]
 }
