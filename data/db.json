@@ -2,7 +2,7 @@
   "meta": {
     "app": "Huishoudboekje NL",
     "version": "2.0.0",
-    "lastUpdated": "2026-11-09T20:44:30.603Z"
+    "lastUpdated": "2026-11-09T20:48:54.310Z"
   },
   "accessControl": {
     "allowedUsers": [
@@ -25,6 +25,161 @@
     "action": "Home & DIY",
     "pathe": "Dining & Leisure"
   },
-  "batches": [],
-  "transactions": []
+  "batches": [
+    {
+      "id": "batch-1794257334310",
+      "fileName": "2026-11-09T21 47 58$..pdf",
+      "bank": "ABN AMRO",
+      "statementMonth": "2026-10",
+      "uploadedAt": "2026-11-09T20:48:54.310Z",
+      "uploadedBy": "Household Admin",
+      "txCount": 11,
+      "totalExpense": 2964.12
+    }
+  ],
+  "transactions": [
+    {
+      "id": "tx-1794257324435-10-btak",
+      "date": "2026-10-31",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "ABN AMRO",
+      "merchant": "€ 30.235,44 € 950,16",
+      "description": "€ 30.235,44 € 950,16",
+      "amount": -1006.98,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257334310"
+    },
+    {
+      "id": "tx-1794257324435-12-2vsk",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "ABN AMRO",
+      "merchant": "/TRTP/SEPA",
+      "description": "/TRTP/SEPA",
+      "amount": -1006.98,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257334310"
+    },
+    {
+      "id": "tx-1794257324435-19-1tkv",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "ABN AMRO",
+      "merchant": "/TRTP/SEPA Incasso algemeen",
+      "description": "/TRTP/SEPA Incasso algemeen",
+      "amount": -20,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257334310"
+    },
+    {
+      "id": "tx-1794257324435-26-gmet",
+      "date": "2026-10-01",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "ABN AMRO",
+      "merchant": "SEPA Overboeking IBAN:",
+      "description": "SEPA Overboeking IBAN:",
+      "amount": -500,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257334310"
+    },
+    {
+      "id": "tx-1794257324435-30-lg1n",
+      "date": "2026-10-03",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "ABN AMRO",
+      "merchant": "/TRTP/iDEAL/Wero/IBAN/NL04ADYB201740",
+      "description": "/TRTP/iDEAL/Wero/IBAN/NL04ADYB201740",
+      "amount": -50,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257334310"
+    },
+    {
+      "id": "tx-1794257324435-36-caba",
+      "date": "2026-10-05",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "ABN AMRO",
+      "merchant": "/TRTP/SEPA Incasso algemeen",
+      "description": "/TRTP/SEPA Incasso algemeen",
+      "amount": -17.15,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257334310"
+    },
+    {
+      "id": "tx-1794257324435-44-i6zi",
+      "date": "2026-10-09",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "ABN AMRO",
+      "merchant": "/TRTP/iDEAL/Wero/IBAN/NL04ADYB201740",
+      "description": "/TRTP/iDEAL/Wero/IBAN/NL04ADYB201740",
+      "amount": -100,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257334310"
+    },
+    {
+      "id": "tx-1794257324435-50-v210",
+      "date": "2026-10-09",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "ABN AMRO",
+      "merchant": "GEA, Betaalpas Geldmaat Eindhovens",
+      "description": "GEA, Betaalpas Geldmaat Eindhovens",
+      "amount": -130,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257334310"
+    },
+    {
+      "id": "tx-1794257324435-53-8mwy",
+      "date": "2026-10-21",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "ABN AMRO",
+      "merchant": "/TRTP/iDEAL/Wero/IBAN/NL04ADYB201740",
+      "description": "/TRTP/iDEAL/Wero/IBAN/NL04ADYB201740",
+      "amount": -100,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257334310"
+    },
+    {
+      "id": "tx-1794257324435-67-ccd6",
+      "date": "2026-10-30",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "ABN AMRO",
+      "merchant": "/TRTP/SEPA Incasso algemeen",
+      "description": "/TRTP/SEPA Incasso algemeen",
+      "amount": -28.71,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257334310"
+    },
+    {
+      "id": "tx-1794257324435-75-y7p4",
+      "date": "2026-10-30",
+      "month": "2026-10",
+      "year": "2026",
+      "bank": "ABN AMRO",
+      "merchant": "ABN AMRO Bank N.V. BasisPakket Betalen",
+      "description": "ABN AMRO Bank N.V. BasisPakket Betalen",
+      "amount": -4.3,
+      "type": "expense",
+      "category": "Transfers & Other",
+      "batchId": "batch-1794257334310"
+    }
+  ]
 }
